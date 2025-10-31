@@ -10,21 +10,24 @@ services:
       - key: N8N_PROTOCOL
         value: https
       - key: N8N_EDITOR_BASE_URL
-        value: n8n-job-agent-r60j.onrender.com
+        value: https://n8n-job-agent-r60j.onrender.com/
       - key: WEBHOOK_URL
-        value: n8n-job-agent-r60j.onrender.com
+        value: https://n8n-job-agent-r60j.onrender.com/
 
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
       - key: N8N_BASIC_AUTH_ACTIVE
-        value: "true"
+        value: "false"
       - key: N8N_BASIC_AUTH_USER
         value: admin
       - key: N8N_BASIC_AUTH_PASSWORD
         value: change_this_now
       - key: N8N_SECURE_COOKIE
         value: "true"
+      - key: N8N_AUTH_EXCLUDE_ENDPOINTS
+        value: "/rest/oauth2-credential/callback"
+
 
       - key: DB_TYPE
         value: postgresdb
