@@ -6,7 +6,7 @@ services:
     autoDeploy: true
     envVars:
       - key: N8N_HOST
-        value: n8n-job-agent.onrender.com
+        value: n8n-job-agent-r60j.onrender.com
       - key: N8N_PROTOCOL
         value: https
       - key: N8N_EDITOR_BASE_URL
