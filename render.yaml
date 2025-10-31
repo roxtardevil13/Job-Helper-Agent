@@ -1,0 +1,50 @@
+services:
+  - type: web
+    name: n8n-job-agent
+    env: docker
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: N8N_HOST
+        value: n8n-job-agent.onrender.com
+      - key: N8N_PROTOCOL
+        value: https
+      - key: N8N_EDITOR_BASE_URL
+        value: https://n8n-job-agent.onrender.com/
+      - key: WEBHOOK_URL
+        value: https://n8n-job-agent.onrender.com/
+      - key: N8N_ENCRYPTION_KEY
+        generateValue: true
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: admin
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: change_this_now
+      - key: N8N_SECURE_COOKIE
+        value: "true"
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        fromDatabase:
+          name: n8n-postgres
+          property: host
+      - key: DB_POSTGRESDB_PORT
+        fromDatabase:
+          name: n8n-postgres
+          property: port
+      - key: DB_POSTGRESDB_DATABASE
+        fromDatabase:
+          name: n8n-postgres
+          property: database
+      - key: DB_POSTGRESDB_USER
+        fromDatabase:
+          name: n8n-postgres
+          property: user
+      - key: DB_POSTGRESDB_PASSWORD
+        fromDatabase:
+          name: n8n-postgres
+          property: password
+databases:
+  - name: n8n-postgres
+    plan: free
